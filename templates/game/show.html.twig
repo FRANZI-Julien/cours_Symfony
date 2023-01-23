@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}idGame{% endblock %}
+
+{% block body %}
+
+<div class="card bg-light mb-3">
+  <div class="card-header"><h3 class= "text-center">{{game.title}}</h3></div>
+    <img src="/uploads/{{game.picture}}" class="card-img-top img-thumbnail" alt="...">
+  <div class="card-body">
+    {% for category in game.categories %}
+        <h4 class="card-title">{{category}}</h4>
+    {% endfor %}
+    <h6 class="card-title">{{game.players}} joueurs</h6>
+    <h6 class="card-title">{{game.time}} min</h6>
+    <h6 class="card-title">+{{game.age}}</h6>
+    <h4 class="card-title">{{game.content}}</h4>
+    <p class="card-text">{{game.description}}</p>
+    <a href="/game" class="btn btn-primary btn-sm">Retour</a>
+  </div>
+</div>
+
+{% endblock %}

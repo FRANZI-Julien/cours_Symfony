@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    {% for game in games %}
+        <div class="card m-2 col-4 ">
+        <img src="uploads/{{game.picture}}" class="card-img-top img-thumbnail" alt="...">
+            <div class="card-body">
+                <h4 class="card-title">{{game.title}}</h4>
+                {% for category in game.categories %}
+                    <h6 class="card-subtitle mb-2 text-muted">{{category}}</h6>
+                {% endfor %}
+                <p class="card-text">{{game.description | slice(0,200)}}...</p>
+                <a href="{{path('app_show_game',{id: game.id}) }}" class="btn btn-primary btn-sm">Voir l'article</a>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
